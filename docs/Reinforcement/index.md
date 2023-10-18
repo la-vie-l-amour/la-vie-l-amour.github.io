@@ -1,0 +1,1 @@
+About reinforcement learning ,主要是相关的数学推导和算法思想
