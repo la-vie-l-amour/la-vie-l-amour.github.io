@@ -15,5 +15,6 @@ jobs: # 工作流的具体内容
         with:
           python-version: 3.x
           fetch-depth: 0
+      - run: pip install mkdocs==1.1.2
       - run: pip install mkdocs-material # 使用pip包管理工具安装mkdocs-material
       - run: mkdocs gh-deploy --force # 使用mkdocs-material部署gh-pages分支
