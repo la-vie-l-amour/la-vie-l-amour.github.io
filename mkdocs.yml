@@ -24,9 +24,7 @@ nav:
     - Math/index.md
     - 矩阵理论:
     - Math/matrix/index.md
-      - SVD:
-        - Math/matrix/SVD/index.md
-      
+
     - 最优化:
       - Math/optimizer/index.md
     - 概率论:
