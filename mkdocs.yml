@@ -1,7 +1,7 @@
 site_name: Dala site
 site_url: https://la-vie-l-amour.github.io/
 site_author: Dala
-site_description: Dala site WOW
+site_description: Dala site :)
 
 
 nav:
@@ -23,7 +23,14 @@ nav:
   - Math:
     - Math/index.md
     - 矩阵理论:
-      - Math/matrix/index.md
+    - Math/matrix/index.md
+      - SVD:
+        - Math/matrix/SVD/index.md
+      
+    - 最优化:
+      - Math/optimizer/index.md
+    - 概率论:
+      - Math/probability/index.md
 
 
   - Philosophy:
