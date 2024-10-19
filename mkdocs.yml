@@ -9,12 +9,10 @@ nav:
     - Reinforcement/index.md
     - MDP:
       - Reinforcement/MDP/index.md
-
     - model-free:
       - Reinforcement/model-free/index.md
     - model-based:
       - Reinforcement/model-based/index.md
-
     - planning:
       - Reinforcement/planning/index.md
 
@@ -23,8 +21,7 @@ nav:
   - Math:
     - Math/index.md
     - 矩阵理论:
-    - Math/matrix/index.md
-
+      - Math/matrix/index.md
     - 最优化:
       - Math/optimizer/index.md
     - 概率论:
