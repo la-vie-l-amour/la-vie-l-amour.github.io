@@ -1,0 +1,2242 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dala site :)">
+      
+      
+        <meta name="author" content="Dala">
+      
+      
+        <link rel="canonical" href="https://suncitydaa.github.io/Reinforcement/model-based/MBRL/">
+      
+      
+        <link rel="prev" href="../../model-free/MFRL/">
+      
+      
+        <link rel="next" href="../../planning/PlanMethod/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>CS285 - Dala site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../mkdocs/css/no-footer.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/css/unordered-list-symbols.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cs285" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Dala site" class="md-header__button md-logo" aria-label="Dala site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dala site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CS285
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sunCityDaa/suncitydaa.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Dala.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../MDP/MDP/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reinforcement Learning
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Math/matrix/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/network/计网.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  408
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Dala site" class="md-nav__button md-logo" aria-label="Dala site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dala site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sunCityDaa/suncitydaa.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Dala.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Reinforcement Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MDP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            MDP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MDP/MDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MDP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    model-free
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            model-free
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-free/MFRL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MFRL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    model-based
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            model-based
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CS285
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    CS285
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-10-use-model-to-control-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 10 (use model to control , planning)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 10 (use model to control , planning)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimal-control-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal Control and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trajectory-optimization-with-derivatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trajectory Optimization with Derivatives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trajectory Optimization with Derivatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lqr-linear-quadratic-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      LQR (Linear quadratic regulator)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lqglinear-quadratic-gaussian-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      LQG（Linear quadratic gaussian regulator)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ddpilqr" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDP/iLQR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-11-learn-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 11 (learn a model)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 11 (learn a model)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncertainty-in-model-based-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      uncertainty in model-based RL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-based-rl-with-complex-observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      model-based RL with complex observations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-12-policy-learning-with-mbrl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 12 (policy learning with mbrl)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 13
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    planning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            planning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/PlanMethod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlanMethod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    矩阵理论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            矩阵理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/matrix/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本知识
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/matrix/SVD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    最优化
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            最优化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/optimizer/%E5%87%B8%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本知识
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    概率论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            概率论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/probability/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本知识
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    408
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            408
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计网
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            计网
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/network/计网.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    操作系统&计组
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            操作系统&计组
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/os/操作系统和计组.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据结构
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/data-structure/数据结构.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据库
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/database/数据库.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    cpp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            cpp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/cpp/基本语法.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    项目
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            项目
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/cpp/项目.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-10-use-model-to-control-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 10 (use model to control , planning)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 10 (use model to control , planning)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimal-control-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimal Control and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trajectory-optimization-with-derivatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trajectory Optimization with Derivatives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trajectory Optimization with Derivatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lqr-linear-quadratic-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      LQR (Linear quadratic regulator)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lqglinear-quadratic-gaussian-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      LQG（Linear quadratic gaussian regulator)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ddpilqr" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDP/iLQR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-11-learn-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 11 (learn a model)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 11 (learn a model)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncertainty-in-model-based-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      uncertainty in model-based RL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-based-rl-with-complex-observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      model-based RL with complex observations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-12-policy-learning-with-mbrl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 12 (policy learning with mbrl)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 13
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/sunCityDaa/suncitydaa.github.io/edit/main/docs/Reinforcement/model-based/MBRL.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="cs285">CS285<a class="headerlink" href="#cs285" title="Permanent link">&para;</a></h1>
+<p>参考另一个 https://sites.google.com/view/deep-rl-bootcamp/lectures</p>
+<h2 id="lecture-10-use-model-to-control-planning">Lecture 10 (use model to control , planning)<a class="headerlink" href="#lecture-10-use-model-to-control-planning" title="Permanent link">&para;</a></h2>
+<h3 id="optimal-control-and-planning">Optimal Control and Planning<a class="headerlink" href="#optimal-control-and-planning" title="Permanent link">&para;</a></h3>
+<p>✈<em>三个术语区分 Optimal control , trajectory optimization , planning：</em>
+trajectory optimization 可以看作 Optimal control 中的一种，Optimal control 可以看成选择controls ，优化 reward 或者最小化 cost。trajectory optimization 优化输出涉及到一系列状态和动作，某种程度上planning 和 trajectory optimization一样。
+轨迹采样
+事实上所有的强化学习问题都可以解决 Optimal control 的问题。</p>
+<p>✈<em>closed-loop 和 open-loop</em>
+![[Pasted image 20230817145727.png]]</p>
+<p>根据模型是deterministic or stochastic ，open-loop又可以划分。
+如果从基于模型的角度来看，open-loop planning应该是更加合理的方法，因为既然知道了模型的dynamic的情况，那么就不需要环境的反馈，agent直接进行推断就可以了。但是在实际基于模型的学习中，模型通常都是不完美的，如果仅仅在开始做规划，那么则可能造成非常大的累积误差，而closed-loop learning则可以根据每一步的反馈修正模型与规划的结果，从而使算法效果更好。
+✈<em>Algorithms for open-loop planning</em></p>
+<p>Stochastic optimization ( called : black box optimization）
+对优化问题进行抽象，原问题为
+$$ a_1,\cdots, a_T = \arg \max_{a_1,\cdots, a_T} J(a_1,\cdots, a_T)$$
+抽象为：<span class="arithmatex">\(<span class="arithmatex">\(A = \arg\max_{A}J(A)\)</span>\)</span>
+为得到最优的<span class="arithmatex">\(A\)</span>，最简单的算法是==Random shooting method==,也即是通过guess &amp; check选出比较优的<span class="arithmatex">\(A\)</span></p>
+<blockquote>
+<ol>
+<li>Pick <span class="arithmatex">\(A_1,\cdots,A_N\)</span> from some distribution (e.g., uniform)</li>
+<li>choose <span class="arithmatex">\(A_i\)</span> based on <span class="arithmatex">\(\arg\max_iJ(A_i)\)</span></li>
+</ol>
+</blockquote>
+<p>Random shooting method 是得不到最优解的，而且以来于采样的运气，所以对这个方法进行改进，对distribution进行更新，也即==Cross-entropy method(CEM)==,这两个算法都是black box optimization algorithms,其流程为：</p>
+<blockquote>
+<ol>
+<li>sample  <span class="arithmatex">\(A_1,\cdots,A_N\)</span> from <span class="arithmatex">\(p(A)\)</span>，<span class="arithmatex">\(p(A)\)</span> is pdf of distribution,typically use Gaussian distribution</li>
+<li>evaluate <span class="arithmatex">\(J(A_1),\cdots,J(A_N)\)</span></li>
+<li>pick the elites <span class="arithmatex">\(A_{i_1},\cdots,A_{i_{M}}\)</span> with the highest value, where <span class="arithmatex">\(M &lt; N\)</span></li>
+<li>refit <span class="arithmatex">\(p(A)\)</span> to the elites <span class="arithmatex">\(A_{i_1},\cdots,A_{i_{M}}\)</span></li>
+</ol>
+</blockquote>
+<ul>
+<li>what's the upside?</li>
+<li>very fast if parallelized</li>
+<li>
+<p>Extremely simple</p>
+</li>
+<li>
+<p>what's the problem?</p>
+</li>
+<li>very harsh dimensionality limit</li>
+<li>only open-loop planning</li>
+</ul>
+<p>❓extension to CEM ：==CAM-ES== ,它是sort of like CEM with momentum ,CEM和CAM-ES都是一种evolution strategy。 </p>
+<p>❓进化算法/演化算法(evolution algorithm)
+请看这一章，有参考链接[[Evolution Algorithm]]</p>
+<p>✈<em>Algorithms for closed-loop planning</em>
+ Monte Carlo tree search(MCTS)，它主要是离散的状态，当然也可以用于连续状态。</p>
+<h3 id="trajectory-optimization-with-derivatives">Trajectory Optimization with Derivatives<a class="headerlink" href="#trajectory-optimization-with-derivatives" title="Permanent link">&para;</a></h3>
+<p>也即通过微分的方式进行轨迹优化，这里的微分是指对动态模型和监督信号进行求导。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">control</th>
+<th style="text-align: center;">RL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">状态state</td>
+<td style="text-align: center;"><span class="arithmatex">\(x_t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(s_t\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">动作action</td>
+<td style="text-align: center;"><span class="arithmatex">\(u_t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(a_t\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">监督信号</td>
+<td style="text-align: center;"><span class="arithmatex">\(c(x_t,u_t)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(r(s_t,a_t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">动态模型</td>
+<td style="text-align: center;"><span class="arithmatex">\(x_{t+1}\sim f(x_t,u_t)\)</span></td>
+<td style="text-align: center;">$s' \sim p(s'</td>
+</tr>
+</tbody>
+</table>
+<p>隐变量是一种未直接观测到但被用来解释数据关系的变量。</p>
+<h4 id="lqr-linear-quadratic-regulator">LQR (Linear quadratic regulator)<a class="headerlink" href="#lqr-linear-quadratic-regulator" title="Permanent link">&para;</a></h4>
+<p>用于transition model is deterministic，也即动态模型是确定的，即<span class="arithmatex">\(x_t = f(x_{t-1},u_{t-1})\)</span> , 对问题进行formulate，采用控制理论中的符号:
+<span class="arithmatex">\(<span class="arithmatex">\(\min_{u_1,\cdots, u_T}\sum_{t=1}^Tc(x_t,u_t) \quad  \color{#0F0} s.t. \color{#FFF}\  x_t = f(x_{t-1},u_{t-1})\)</span>\)</span>
+将条件替换目标函数中的<span class="arithmatex">\(x_t\)</span>，将问题转换为无约束问题，目标函数变为:
+$$\min_{u_1,\cdots, u_T}c(x_1,u_1)+c(f(x_1,u_1),u_2)+\cdots+c(f(f(\cdots)\cdots),u_T)  $$
+其中动态模型是有关状态和动作的线性<span class="arithmatex">\(\color{#F00}Linear\)</span>表示:
+<span class="arithmatex">\(<span class="arithmatex">\(f(x_t,u_t) = F_t\begin{bmatrix} x_t \\ u_t\end{bmatrix} + f_t\)</span>\)</span>而监督信号表示为状态和动作的<span class="arithmatex">\(\color{#F00}quadratic\)</span>近似:
+<span class="arithmatex">\(<span class="arithmatex">\(c(x_t,u_t) = \frac{1}{2}\begin{bmatrix}x_t \\ u_t\end{bmatrix}^T C_t\begin{bmatrix}x_t \\ u_t\end{bmatrix} + \begin{bmatrix}x_t \\ u_t\end{bmatrix}^T c_t\)</span>\)</span>
+这便是为何称此算法为<span class="arithmatex">\(\color{#F00} Linear\ quadratic\ regulator\)</span>.
+参数<span class="arithmatex">\(C_t = \begin{bmatrix}C_{x_t,x_t} &amp; C_{x_t,u_t} \\ C_{u_t,x_t} &amp; C_{u_t,u_t} \end{bmatrix}\)</span> , <span class="arithmatex">\(c_{t} = \begin{bmatrix}c_{x_t} \\ c_{u_t}\end{bmatrix}\)</span> ,<span class="arithmatex">\(F_t\ ,f_t\)</span> 均已知.</p>
+<blockquote>
+<p>必须要说明的是通常我们认为<span class="arithmatex">\(C_t\)</span>是对称矩阵symmetric matrix ,这一点对之后的公式推导很重要.</p>
+</blockquote>
+<p>因为<span class="arithmatex">\(C_t\)</span> 是对称矩阵，所以<span class="arithmatex">\(C_t^T = C_t\)</span> ,也即 <span class="arithmatex">\(<span class="arithmatex">\(\begin{bmatrix}C_{x_t,x_t}^T &amp; C_{u_t,x_t} ^T\\ C_{x_t,u_t}^T &amp; C_{u_t,u_t}^T \end{bmatrix} = \begin{bmatrix}C_{x_t,x_t} &amp; C_{x_t,u_t} \\ C_{u_t,x_t} &amp; C_{u_t,u_t} \end{bmatrix}\)</span>\)</span>
+所以显而易见 $$C_{x_t,u_t}^T = C_{u_t,x_t} \tag{1} $$ <span class="arithmatex">\(<span class="arithmatex">\(C_{u_t,x_t}^T = C_{x_t,u_t } \tag{2}\)</span>\)</span>  <span class="arithmatex">\(<span class="arithmatex">\(C_{x_t,x_t}^T =  C_{x_t,x_t} \tag{3}\)</span>\)</span><span class="arithmatex">\(<span class="arithmatex">\(C_{u_t,u_t}^T =  C_{u_t,u_t} \tag{4}\)</span>\)</span></p>
+<hr />
+<p><strong>求解</strong>： 目标是对上述无约束优化问题进行求解，求得最优动作序列，已知初始状态，目标状态goal state，动态模型，cost function（其实就是监督信号）。</p>
+<p>那就求导白，无约束优化问题，也无需拉格朗日乘子转换，直接求导，但变量<span class="arithmatex">\(u_1,\cdots, u_T\)</span> 一共T个，该对谁先求导呢？可以明显看出，<span class="arithmatex">\(u_T\)</span> 只影响目标函数的最后一项<span class="arithmatex">\(c(f(f(\cdots)\cdots),u_T)\)</span>，<span class="arithmatex">\(u_{T-1}\)</span> 影响目标函数的后两项，依次类推，所以我们从 <span class="arithmatex">\(u_T\)</span> 开始进行求导，因为只有最后一项和<span class="arithmatex">\(u_T\)</span>有关，所以目标函数可写为:
+<span class="arithmatex">\(<span class="arithmatex">\(Q(x_T,u_T) = const + \underbrace{\frac{1}{2}\begin{bmatrix}x_T\\ u_T\end{bmatrix}^T C_T\begin{bmatrix}x_T \\ u_T\end{bmatrix} + \begin{bmatrix}x_T \\ u_T\end{bmatrix}^T c_T}_{c(x_T,u_T)} \tag{5}\)</span>\)</span>
+这里将目标函数写为<span class="arithmatex">\(Q(x_T,u_T)\)</span>，就是按照RL中对于状态价值函数<span class="arithmatex">\(Q(s,a)\)</span>的定义写的，只不过这里的不是<span class="arithmatex">\(r(s,a)\)</span>，而是cost function <span class="arithmatex">\(c(s,a)\)</span>，其实是一样的。
+将<span class="arithmatex">\(c(x_T,u_T)\)</span>展开，其中<span class="arithmatex">\(\color{#FF0}u_T^TC_{u_T,x_T}x_T\)</span>和<span class="arithmatex">\(\color{#FF0}x_T^TC_{x_T,u_T}u_T\)</span> 互为转置，可通过式子(1)(2)进行论证，同时，<span class="arithmatex">\(c(x_T,u_T)\)</span>是个scalar，所以其实<span class="arithmatex">\(\color{#FF0}u_T^TC_{u_T,x_T}x_T=x_T^TC_{x_T,u_T}u_T\)</span> ，一个数的转置等于它自己。
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align}
+c(x_T,u_T)&amp;= \frac{1}{2}(x_T^TC_{x_T,x_T}x_T+\color{#FF0}u_T^TC_{u_T,x_T}x_T + x_T^TC_{x_T,u_T}u_T \color{#FFF} +u_T^TC_{u_T,u_T}u_T) +x_T^Tc_{x_T}+u_T^Tc_{u_T}\\
+&amp; = \frac{1}{2}(x_T^TC_{x_T,x_T}x_T+\color{#FF0}2x_T^TC_{x_T,u_T}u_T \color{#FFF} +u_T^TC_{u_T,u_T}u_T) +x_T^Tc_{x_T}+u_T^Tc_{u_T}
+\end{align}\)</span>\)</span>
+对<span class="arithmatex">\(u_T\)</span>求导，令其为0，这里涉及到矩阵求导，参看笔记矩阵微分，采用的分母布局（Denominator layout），是Scalar By Vector的形式，推导时用到了式(1),(4)
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align}
+\nabla_{u_T}Q(x_T, u _T)  
+&amp;= (x_T^TC_{x_T,u_T})^T +\frac{1}{2} (C_{u_T,u_T}+C_{u_T,u_T}^T)u_T+c_{u_T}  \\ 
+&amp;= C_{u_T,x_T}x_T + C_{u_T,u_T}u_T+ c_{u_T}  = 0 \tag{6}
+\end{align}\)</span>\)</span>
+可以解出
+$$
+u_T  = -C^{-1}<em u_T_x_T="u_T,x_T">{u_T,u_T}(C</em>) 
+$$
+令 }x_T+c_{u_T<span class="arithmatex">\(K_T = -C^{-1}_{u_T,u_T}C_{u_T,x_T} ,\quad k_T = -C^{-1}_{u_T,u_T}c_{u_T}\)</span> ，它们均为常数，则<span class="arithmatex">\(u_T\)</span> 可以表示为
+<span class="arithmatex">\(<span class="arithmatex">\(u_T = K_Tx_T + k_T\)</span>\)</span>
+上式关于<span class="arithmatex">\(u_T\)</span>的表达式，是使得目标函数<span class="arithmatex">\(Q(x_T,u_T)\)</span>最小的那个动作，可以替换目标函数式(5)，将其中的<span class="arithmatex">\(u_T\)</span>替换为关于<span class="arithmatex">\(x_T\)</span>的表达式，得出<span class="arithmatex">\(V(x_T)\)</span>，且<span class="arithmatex">\(V(x_T) = \arg\,\min_{u_T}Q(x_T,u_T)\)</span>
+$$\begin{align}
+V(x_T) =&amp; const + \frac{1}{2}\begin{bmatrix}x_T\ K_Tx_T + k_T\end{bmatrix}^T C_T\begin{bmatrix}x_T \ K_Tx_T + k_T\end{bmatrix} + \begin{bmatrix}x_T \ K_Tx_T + k_T\end{bmatrix}^T c_T \
+=&amp;const + \frac{1}{2}x_T^TC_{x_T,x_T}x_T+ \frac{1}{2} x_T^TC_{x_T,u_T}K_Tx_T +  \color{#0FF}\frac{1}{2} x_T^TC_{x_T,u_T}k_T \color{#FFF}+ \frac{1}{2} x_T^TK_T^TC_{u_T,x_T}x_T+\color{#0FF}\frac{1}{2} k_T^TC_{u_T,x_T}x_T \color{#FFF}+ \
+&amp;\frac{1}{2}x_T^TK_T^TC_{u_T,u_T}K_Tx_T+\color{#F00}\frac{1}{2}x_T^TK_T^TC_{u_T,u_T}k_T+ \frac{1}{2}k_T^TC_{u_T,u_T}K_Tx_T\color{#FFF}+x_T^Tc_{x_T} + x_T^TK_T^Tc_{u_T} \
+=&amp;const + \frac{1}{2}x^T_T(C_{x_T,x_T}+C_{x_T,u_T}K_T+K_T^TC_{u_T,x_T}+K_T^TC_{u_T,u_T}K_T)x_T + x_T^T(C_{x_T,u_T}k_T+K_T^TC_{u_T,u_T}k_T+c_{x_T}+K_T^Tc_{u_T})
+ \end{align}
+$$
+红色的两部分是相等的，绿色的两部分也是相等的，具体原因和上面一样，因为互为转置，且是个scalar。还有两部分是相等的（第一个绿色前面和后面的那一项），不过这部分没有用到。
+令
+<span class="arithmatex">\(<span class="arithmatex">\(V_T = C_{x_T,x_T}+C_{x_T,u_T}K_T+K_T^TC_{u_T,x_T}+K_T^TC_{u_T,u_T}K_T\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(v_T = C_{x_T,u_T}k_T+K_T^TC_{u_T,u_T}k_T+c_{x_T}+K_T^Tc_{u_T}\)</span>\)</span>
+需要说明的是<span class="arithmatex">\(V_T\)</span>是个symmatric matrix，（和<span class="arithmatex">\(K_T\)</span>是否symmatric无关）所以<span class="arithmatex">\(V_T^T = V_T\)</span>，这个后续有用到。
+则<span class="arithmatex">\(V(x_T)\)</span> 可以表示为
+ $$V(x_T) = const + \frac{1}{2}x^T_TV_Tx_T + x_T^Tv_T $$
+T时刻在采取了最优动作<span class="arithmatex">\(u_T\)</span>损失变为了上式。</p>
+<p>T-1时刻，<span class="arithmatex">\(u_{T-1}\)</span>影响的是后两步，在T-1时刻的目标函数
+<span class="arithmatex">\(<span class="arithmatex">\(Q(x_{T-1},u_{T-1}) = const + \underbrace{\frac{1}{2}\begin{bmatrix}x_{T-1}\\ u_{T-1}\end{bmatrix}^T C_{T-1}\begin{bmatrix}x_{T-1} \\ u_{T-1}\end{bmatrix} + \begin{bmatrix}x_{T-1} \\ u_{T-1}\end{bmatrix}^T c_{T-1}}_{c(x_{T-1},u_{T-1})} + V(f(x_{T-1},u_{T-1}))\)</span>\)</span>
+毫无疑问，<span class="arithmatex">\(V(f(x_{T-1},u_{T-1}))\)</span>是<span class="arithmatex">\(c(x_T,u_T)\)</span>，当然也不全是，const那部分不全是，使用<span class="arithmatex">\(u_{T-1}\)</span>和<span class="arithmatex">\(x_{T-1}\)</span>表示<span class="arithmatex">\(V(x_T)\)</span> ,<span class="arithmatex">\(<span class="arithmatex">\(x_{T} = f(x_{T-1},u_{T-1}) = F_{T-1}\begin{bmatrix} x_{T-1} \\ u_{T-1}\end{bmatrix} + f_{T-1}\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(V(x_T) = V(f(x_{T-1},u_{T-1})) = \frac{1}{2}(\begin{bmatrix} x_{T-1} \\ u_{T-1}\end{bmatrix}^TF_{T-1}^TV_TF_{T-1}\begin{bmatrix} x_{T-1} \\ u_{T-1}\end{bmatrix}+\color{#F00}\begin{bmatrix} x_{T-1} \\ u_{T-1}\end{bmatrix}^TF_{T-1}^TV_Tf_{T-1}+f_{T-1}^TV_TF_{T-1}\begin{bmatrix} x_{T-1} \\ u_{T-1}\end{bmatrix}\color{#FFF}+f_{T-1}^TV_Tf_{T-1})+\begin{bmatrix} x_{T-1} \\ u_{T-1}\end{bmatrix}^TF_{T-1}^Tv_T+f_{T-1}^Tv_T\)</span>\)</span>
+红色的两个部分是相同的，前面已经提到<span class="arithmatex">\(V_T\)</span>是symmatric matrix，所以显而易见，这两者是相同的。
+目标函数变为$$Q(x_{T-1},u_{T-1}) =const +\frac{1}{2}\begin{bmatrix}x_{T-1}\ u_{T-1}\end{bmatrix}^T Q_{T-1}\begin{bmatrix}x_{T-1} \ u_{T-1}\end{bmatrix} + \begin{bmatrix}x_{T-1} \ u_{T-1}\end{bmatrix}^T q_{T-1} $$
+其中 <span class="arithmatex">\(Q_{T-1} = F_{T-1}^TV_TF_{T-1}+C_{T-1}\)</span> , <span class="arithmatex">\(q_{T-1} = F_{T-1}^TV_Tf_{T-1}+F_{T-1}^Tv_T+c_{T-1}\)</span>
+求导, 这里对比式(5),(6),可以直接得出导数
+<span class="arithmatex">\(<span class="arithmatex">\(\nabla_{u_{T-1}}Q(x_{T-1},u_{T-1}) = Q_{u_{T-1},x_{T-1}}x_{T-1}+Q_{u_{T-1},u_{T-1}}u_{T-1}+q_{u_{T-1}}=0\)</span>\)</span>
+可以解出
+$$
+u_{T-1} = -Q^{-1}<em T-1="T-1">{u</em>) 
+$$
+令 },u_{T-1}}(Q_{u_{T-1},x_{T-1}}x_{T-1}+q_{u_{T-1}<span class="arithmatex">\(K_{T-1} = -Q^{-1}_{u_{T-1},u_{T-1}}Q_{u_{T-1},x_{T-1}} ,\quad k_{T-1} = -Q^{-1}_{u_{T-1},u_{T-1}}q_{u_{T-1}}\)</span> ，它们均为常数，则<span class="arithmatex">\(u_{T-1}\)</span> 可以表示为
+<span class="arithmatex">\(<span class="arithmatex">\(u_{T-1} = K_{T-1}x_{T-1} + k_{T-1}\)</span>\)</span>
+依次类推，Backward recursion 流程可以描述为</p>
+<blockquote>
+<p>for t = T to 1:</p>
+<blockquote>
+<p><strong>1</strong> 从当前时刻到最终时刻的损失（状态<span class="arithmatex">\(x_t\)</span>采取动作<span class="arithmatex">\(u_t\)</span>）可以写为 <span class="arithmatex">\(<span class="arithmatex">\(Q(x_{t},u_{t}) =const +\frac{1}{2}\begin{bmatrix}x_{t}\\ u_{t}\end{bmatrix}^T Q_{t}\begin{bmatrix}x_{t} \\ u_{t}\end{bmatrix} + \begin{bmatrix}x_{t} \\ u_{t}\end{bmatrix}^T q_{t}\)</span>\)</span>
+其中 <span class="arithmatex">\(Q_{t} = F_{t}^TV_{t+1}F_{t}+C_{t}\)</span> , <span class="arithmatex">\(q_{t} = F_{t}^TV_{t+1}f_{t}+F_{t}^Tv_{t+1}+c_{t}\)</span>
+<strong>2</strong> 求使损失最小的<span class="arithmatex">\(u_t\)</span> <span class="arithmatex">\(<span class="arithmatex">\(u_t\leftarrow \arg\min_{u_t}Q(x_t,u_t) = K_tx_t+k_t\)</span>\)</span>
+其中<span class="arithmatex">\(K_{t} = -Q^{-1}_{u_{t},u_{t}}Q_{u_{t},x_{t}} ,\quad k_{t} = -Q^{-1}_{u_{t},u_{t}}q_{u_{t}}\)</span>
+<strong>3</strong> 将最优动作<span class="arithmatex">\(u_t\)</span>带入损失，得到在状态<span class="arithmatex">\(x_t\)</span>从当前时刻到最终时刻的总损失$$V(x_t) = const + \frac{1}{2}x^T_tV_tx_t + x_t^Tv_t $$
+其中<span class="arithmatex">\(V_t = Q_{x_t,x_t}+Q_{x_t,u_t}K_t+K_t^TQ_{u_t,x_t}+K_t^TQ_{u_t,u_t}K_t\)</span>,<span class="arithmatex">\(v_t = Q_{x_t,u_t}k_t+K_t^TQ_{u_t,u_t}k_t+q_{x_t}+K_t^Tq_{u_t}\)</span></p>
+</blockquote>
+</blockquote>
+<p>Forward recursion</p>
+<blockquote>
+<p>For t = 1 to T:</p>
+<blockquote>
+<p><strong>1</strong> 计算动作： <span class="arithmatex">\(u_t = K_tx_t+k_t\)</span>
+<strong>2</strong> 计算状态：<span class="arithmatex">\(x_{t+1} = f(x_t,u_t)\)</span></p>
+</blockquote>
+</blockquote>
+<h4 id="lqglinear-quadratic-gaussian-regulator">LQG（Linear quadratic gaussian regulator)<a class="headerlink" href="#lqglinear-quadratic-gaussian-regulator" title="Permanent link">&para;</a></h4>
+<p>用于transition model is stochastic,也可以说是stochastic dynamics 
+LQG只能用于closed-loop ,而LQR既可以是open-loop，也可以是closed-loop
+动态模型那里，应用了KF(Kalman filter) ,所以这里需要填补，KF的知识，同时KF 又有扩展卡尔曼滤波(extend Kalman filter) 和 无迹卡尔曼滤波 (unscented Kalman filter)，
+黎卡曼方程 Riccati方程
+Hamilton-Jacobi-Bellman equation</p>
+<h4 id="ddpilqr">DDP/iLQR<a class="headerlink" href="#ddpilqr" title="Permanent link">&para;</a></h4>
+<p>主要用于非线性例子Nonlinear case, DDP全称为Differential Dynamic Programming， iLQR全称为iterative linear quadratic regulator,如果是gaussian setting ,有时也被称为iLQG.
+iLQR是监督信号是用泰勒二阶近似，动态模型是用泰勒一阶近似
+DDP是监督信号用泰勒二阶近似，动态模型则是用泰勒二阶近似
+<a href="http://www.imgeorgiev.com/2023-02-01-ddp/#eq:bellman-discrete">Deriving Differential Dynamic Porgramming (imgeorgiev.com)</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">RL</th>
+<th style="text-align: center;">LQR</th>
+<th style="text-align: center;">LQG</th>
+<th style="text-align: center;">iLQR/DDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">监督信号</td>
+<td style="text-align: center;">Network, ect</td>
+<td style="text-align: center;">quadratic</td>
+<td style="text-align: center;">quadratic</td>
+<td style="text-align: center;">Non-Linear</td>
+</tr>
+<tr>
+<td style="text-align: center;">动态模型</td>
+<td style="text-align: center;">Network, ect</td>
+<td style="text-align: center;">Linear</td>
+<td style="text-align: center;">Linear Gaussian</td>
+<td style="text-align: center;">Non-Linear</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lecture-11-learn-a-model">Lecture 11 (learn a  model)<a class="headerlink" href="#lecture-11-learn-a-model" title="Permanent link">&para;</a></h2>
+<p>why does naive approach not work?
+the effect of distributional shift in model-based RL</p>
+<h3 id="uncertainty-in-model-based-rl">uncertainty in model-based RL<a class="headerlink" href="#uncertainty-in-model-based-rl" title="Permanent link">&para;</a></h3>
+<h3 id="model-based-rl-with-complex-observations">model-based RL with complex observations<a class="headerlink" href="#model-based-rl-with-complex-observations" title="Permanent link">&para;</a></h3>
+<h2 id="lecture-12-policy-learning-with-mbrl">Lecture 12 (policy learning with mbrl)<a class="headerlink" href="#lecture-12-policy-learning-with-mbrl" title="Permanent link">&para;</a></h2>
+<h2 id="lecture-13">Lecture 13<a class="headerlink" href="#lecture-13" title="Permanent link">&para;</a></h2>
+<h1 id="paper">paper<a class="headerlink" href="#paper" title="Permanent link">&para;</a></h1>
+<h2 id="guided-policy-search-gps">（Guided Policy Search, GPS）<a class="headerlink" href="#guided-policy-search-gps" title="Permanent link">&para;</a></h2>
+<h2 id="policy-gradient-search-pgs">（Policy Gradient Search, PGS)<a class="headerlink" href="#policy-gradient-search-pgs" title="Permanent link">&para;</a></h2>
+<h2 id="kalman-filters">（Kalman filters）<a class="headerlink" href="#kalman-filters" title="Permanent link">&para;</a></h2>
+<h1 id="chapter-8">Chapter 8<a class="headerlink" href="#chapter-8" title="Permanent link">&para;</a></h1>
+<p>有关suttton的这本书，参见up主shuhuai008的讲解</p>
+<h2 id="mcts">MCTS<a class="headerlink" href="#mcts" title="Permanent link">&para;</a></h2>
+<p>具体的流程操作，参看
+<a href="https://www.bilibili.com/video/BV1fY4y1876L/?spm_id_from=333.337.search-card.all.click&amp;vd_source=2c0021dfb98aee58f7a63ef2d9ad3b48">【双语字幕】MCTS蒙特卡洛树搜索算法详细步骤解释_哔哩哔哩_bilibili</a>
+有关(Upper Confidence Bounds,UCB)<a href="https://zhuanlan.zhihu.com/p/218398647">PR Reasoning Ⅱ：Bandit问题与 UCB / UCT / AlphaGo - 知乎 (zhihu.com)</a></p>
+<p>MCTS 流程</p>
+<blockquote>
+<ol>
+<li></li>
+</ol>
+</blockquote>
+<h2 id="prioritized-sweeping">优先遍历（Prioritized sweeping）<a class="headerlink" href="#prioritized-sweeping" title="Permanent link">&para;</a></h2>
+<h1 id="ref">Ref<a class="headerlink" href="#ref" title="Permanent link">&para;</a></h1>
+<p>[1] CS285 lecture10-14 , slides2022  <a href="https://rail.eecs.berkeley.edu/deeprlcourse/static/slides/">Index of /deeprlcourse/static/slides (berkeley.edu)</a>
+<a href="https://rail.eecs.berkeley.edu/deeprlcourse-fa21/">CS 285 (berkeley.edu)</a> 2021
+[2] paper called model-based rl a survey 
+[3] chapter 8  of <em>Reinforcement learning, An Introduction Second Edition</em>
+[4] course CS294-112
+[5]<a href="https://blog.csdn.net/weixin_40056577/article/details/104270668">LQR,iLQR,DDP控制论经典算法（MBRL基础知识）</a>
+<a href="https://hrl.boyuai.com/chapter/1/%E5%88%9D%E6%8E%A2%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0">初探强化学习 (boyuai.com)</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://suncitydaa.github.io/" target="_blank" rel="noopener" title="GitHub | Dala" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

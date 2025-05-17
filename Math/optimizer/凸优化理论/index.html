@@ -1,0 +1,1933 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dala site :)">
+      
+      
+        <meta name="author" content="Dala">
+      
+      
+        <link rel="canonical" href="https://suncitydaa.github.io/Math/optimizer/%E5%87%B8%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">
+      
+      
+        <link rel="prev" href="../../matrix/SVD/">
+      
+      
+        <link rel="next" href="../../probability/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>基本知识 - Dala site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../mkdocs/css/no-footer.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/css/unordered-list-symbols.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Dala site" class="md-header__button md-logo" aria-label="Dala site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dala site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基本知识
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sunCityDaa/suncitydaa.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Dala.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Reinforcement/MDP/MDP/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reinforcement Learning
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../matrix/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/network/计网.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  408
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Dala site" class="md-nav__button md-logo" aria-label="Dala site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dala site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sunCityDaa/suncitydaa.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Dala.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Reinforcement Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MDP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            MDP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reinforcement/MDP/MDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MDP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    model-free
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            model-free
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reinforcement/model-free/MFRL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MFRL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    model-based
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            model-based
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reinforcement/model-based/MBRL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CS285
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    planning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            planning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Reinforcement/planning/PlanMethod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlanMethod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    矩阵理论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            矩阵理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matrix/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本知识
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matrix/SVD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    最优化
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            最优化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本知识
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    概率论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            概率论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability/%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本知识
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    408
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            408
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计网
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            计网
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/network/计网.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    操作系统&计组
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            操作系统&计组
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/os/操作系统和计组.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据结构
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/data-structure/数据结构.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据库
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/database/数据库.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    cpp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            cpp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/cpp/基本语法.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    项目
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            项目
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/cpp/项目.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/sunCityDaa/suncitydaa.github.io/edit/main/docs/Math/optimizer/凸优化理论.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">基本知识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="_2">凸集<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h2 id="_3">定义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>对于任意的<span class="arithmatex">\(x, y \in C\)</span>，任意的<span class="arithmatex">\(\lambda \in [0,1]\)</span>,都
+<span class="arithmatex">\(<span class="arithmatex">\(\lambda x + (1-\lambda )y \in C\)</span>\)</span>
+集合中的任意两点连线仍属于此集合。则称<span class="arithmatex">\(C\)</span>为凸集。</p>
+<h3 id="_4">等价定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>对于任意的<span class="arithmatex">\(x_1,\cdots, x_k \in C\)</span> ,任意的<span class="arithmatex">\(\lambda_i \geq 0\)</span>且<span class="arithmatex">\(\lambda_1+\cdots+\lambda_k = 1\)</span>有
+<span class="arithmatex">\(<span class="arithmatex">\(\lambda_1 x_1 + \cdots +\lambda_k x_k \in C\)</span>\)</span>
+则<span class="arithmatex">\(C\)</span>是凸集。</p>
+<blockquote>
+<p>Proof：两个定义等价（使用归纳法）
+1）在k = 2的时候，成立
+2）假设k = m时候成立，则k = m+1的时候</p>
+</blockquote>
+<h2 id="_5">凸包<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>首先给出几个组合形式
+凸组合<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}\lambda_{1}\mathrm{x}_{1}+\cdotp\cdotp\cdotp+\lambda_{k}\mathrm{x}_{k}\\\forall\lambda_{i}\geq0\text{ 且 }\lambda_{1}+\cdotp\cdotp\cdotp+\lambda_{k}=1\text{。}\end{aligned}\)</span>\)</span>
+线性组合
+<span class="arithmatex">\(<span class="arithmatex">\(\lambda_1x_1+\cdots+\lambda_kx_k\)</span>\)</span>
+仿射组合<span class="arithmatex">\(<span class="arithmatex">\(\lambda_1x_1+\cdots+\lambda_kx_k\text{ 且 }\lambda_1+\cdots+\lambda_k=1\)</span>\)</span>
+非负组合 <span class="arithmatex">\(<span class="arithmatex">\(\lambda_1x_1+\cdots+\lambda_kx_k\text{ 且 }\forall\lambda_i\geq0\)</span>\)</span>
+凸包（convex hull）：任意集合<span class="arithmatex">\(C\)</span>的凸包定义为由<span class="arithmatex">\(C\)</span>中点的凸组合构成<span class="arithmatex">\(<span class="arithmatex">\(\mathrm{conv}C=\{\lambda_1\mathrm{x}_1+\cdotp\cdotp\cdotp+\lambda_k\mathrm{x}_k|\mathrm{x}_i\in C,\\\lambda_i\geq0,\lambda_1+\cdotp\cdotp\cdotp+\lambda_k,i=1,...,k\}\)</span>\)</span>
+凸包是包含集合<span class="arithmatex">\(C\)</span>的最小凸集</p>
+<h2 id="_6">性质<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>1）设<span class="arithmatex">\(C_1,C_2\)</span>是凸集，则
+    (1) <span class="arithmatex">\(C_{1}\cap C_{2}= \{ x\mid x\in C_{1}\)</span>, <span class="arithmatex">\(x\in C_{2}\}\)</span>是凸集
+    (2) <span class="arithmatex">\(C_{1}\pm C_{2}= \{ x\pm y\mid x\in C_{1}\)</span>, <span class="arithmatex">\(y\in C_{2}\}\)</span>是凸集
+2） 假设<span class="arithmatex">\(f:\mathbb{R}^n\to\mathbb{R}^m\)</span>是仿射函数（这个仿射变换就是矩阵理论中的东西），即<span class="arithmatex">\(f(x)=Ax+b\)</span>,其中<span class="arithmatex">\(A\in\mathbb{R}^{m\times n},b\in\mathbb{R}^m.\)</span>
+- <span class="arithmatex">\(C\)</span>是凸集<span class="arithmatex">\(\Longrightarrow f(C)=\{f(x)\mid x\in C\}\)</span>是凸集；
+- <span class="arithmatex">\(C\)</span>是凸集<span class="arithmatex">\(\Longrightarrow f^{-1}(C)=\{x\mid f(x)\in C\}\)</span>是凸集。
+通俗来说：就是凸集经过仿射变换仍是凸集，如果仿射变换后的集合是凸集则原集合也是凸集。</p>
+<h3 id="_7">投影定理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_8">点与凸集的分离定理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h1 id="_9">凸函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<h2 id="_10">定义<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>设<span class="arithmatex">\(C\)</span>是非空<strong>凸集</strong>，<span class="arithmatex">\(f\)</span>是定义在<span class="arithmatex">\(C\)</span>上的函数，如果对任意的<span class="arithmatex">\(x,y\in C, \alpha \in (0,1)\)</span>,均有
+<span class="arithmatex">\(<span class="arithmatex">\(f(\alpha x+(1-\alpha)y) \leq \alpha f(x) + (1- \alpha) f(y)\)</span>\)</span>
+则称<span class="arithmatex">\(f\)</span>为<span class="arithmatex">\(C\)</span>上的凸函数。如果是<span class="arithmatex">\(&lt;\)</span>，则是严格凸函数。若<span class="arithmatex">\(f\)</span>是凸函数，<span class="arithmatex">\(-f\)</span>是凹函数</p>
+<h2 id="_11">性质<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>1）凸函数一定是连续函数
+2）<span class="arithmatex">\(f(x)\)</span>为凸函数的充要条件是对任意的<span class="arithmatex">\(x,y \in \mathbb{R}^n\)</span>，一元函数<span class="arithmatex">\(\phi(\alpha) = f(x+\alpha y)\)</span>是关于<span class="arithmatex">\(\alpha\)</span>的凸函数</p>
+<blockquote>
+<p>Proof</p>
+</blockquote>
+<p>3）一阶充要条件：<span class="arithmatex">\(f(x)\)</span>在凸集<span class="arithmatex">\(C\)</span>上是凸函数的充要条件为,对任意<span class="arithmatex">\(x,y\in C\)</span>  $$f(y) \geq f(x) + \nabla f(x)^T(y-x)  $$</p>
+<blockquote>
+<p>Proof:
+<strong>充分性</strong>：<span class="arithmatex">\(\begin{aligned}&amp;\text{只要证 }f(\alpha x+(1-\alpha)y)\leq\alpha f(x)+(1-\alpha)f(y)\\&amp;\text{记 }\alpha x+(1-\alpha)y=z,\text{ 由假设,有}\\&amp;f(x)\geq f(z)+\nabla f(z)^T(x-z)\text{ 与 }f(y)\geq f(z)+\nabla f(z)^T(y-z)\\&amp;\text{因此 }\alpha f(x)+(1-\alpha)f(y)\geq f(z)+\nabla f(z)^T(\alpha x+(1-\alpha)y-z),\\&amp;\text{即 }\alpha f(x)+(1-\alpha)f(y)\geq f(z),\text{ 得证。}\end{aligned}\)</span>
+<strong>必要性</strong>：已知<span class="arithmatex">\(f\)</span>为凸函数，则对任意<span class="arithmatex">\(x,y\)</span>有
+<span class="arithmatex">\(f(\alpha y+(1-\alpha)x)\leq\alpha f(y)+(1-\alpha)f(x)\)</span>
+即<span class="arithmatex">\(f(x+\alpha(y-x))\leq f(x)+\alpha(f(y)-f(x))\)</span> 即<span class="arithmatex">\(f(y)\geq f(x)+(f(x+\alpha(y-x))-f(x))/\alpha\)</span>, 对<span class="arithmatex">\(f(x+\alpha(y-x))\)</span>泰勒展开：
+<span class="arithmatex">\(f(x+\alpha(y-x))=f(x)+\alpha\nabla f(x)^T(y-x)+o(\alpha\|y-x\|)\)</span>
+代入上述不等式，并令<span class="arithmatex">\(\alpha\to0\)</span>,得证。</p>
+</blockquote>
+<p>4）二阶充要条件：<span class="arithmatex">\(f(x)\)</span>在非空开凸集<span class="arithmatex">\(C\)</span>上二阶连续可微，则<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(C\)</span>上是凸函数的充要条件为,对任意<span class="arithmatex">\(x\in C\)</span> ，<span class="arithmatex">\(f(x)\)</span>的Hesse矩阵半正定。</p>
+<blockquote>
+<p>Proof 
+<strong>必要性</strong>：对任意<span class="arithmatex">\(d\)</span>,存在<span class="arithmatex">\(\alpha&gt;0\)</span>使<span class="arithmatex">\(x+\alpha{d}\in C\)</span>。在点<span class="arithmatex">\({x}\)</span>二阶泰勒展开： <span class="arithmatex">\(f(x+\alpha d)=f(x)+\alpha\nabla f(x)^Td+\frac12\alpha^2d^T\nabla^2f(x)d+o(\alpha^2\|d\|^2)\)</span>
+因为 <span class="arithmatex">\(f\)</span>凸，由性质 (3)得：<span class="arithmatex">\(f(x+\alpha d)\geq f(x)+\alpha\nabla f(x)^Td\)</span>
+所以_<span class="arithmatex">\(\frac12\alpha^{2}d^{T}\nabla^{2}f(x)d+o(\alpha^{2}\|d\|^{2})\geq0\)</span>
+即<span class="arithmatex">\(d^T{\nabla}^2f(x)d+2o(\alpha^2\|d\|^2)/\alpha^2\geq0\)</span>
+令<span class="arithmatex">\(\alpha\to0\)</span>,得<span class="arithmatex">\(d^T\nabla^{2}f(x)d\geq0\)</span>,得证。
+<strong>充分性</strong>：对任意 <span class="arithmatex">\(x,y\in C\)</span>,在点 <span class="arithmatex">\({x}\)</span>二阶泰勒展开：
+<span class="arithmatex">\(f(y)=f(x)+\nabla f(x)^T(y-x)+\frac12(y-x)^T\nabla^2f(\xi)(y-x)\)</span> 其中<span class="arithmatex">\(\xi = x+ \alpha ( y- x) = \alpha y+ ( 1- \alpha ) x\)</span>, <span class="arithmatex">\(\alpha \in ( 0, 1)\)</span>。由于<span class="arithmatex">\(C\)</span>是凸集，所以 <span class="arithmatex">\(\xi\in C\)</span>。由条件知
+<span class="arithmatex">\(\frac12(y-x)^T\nabla^2f(\xi)(y-x)\geq0\)</span>。所以<span class="arithmatex">\(f(y)\geq f(x)+\nabla f(x)^T(y-x)\)</span>。</p>
+</blockquote>
+<p>5）延申4），如果<span class="arithmatex">\(\nabla^2 f(x)\)</span>是正定矩阵，则<span class="arithmatex">\(f(x)\)</span>为严格凸函数，但如果<span class="arithmatex">\(f(x)\)</span>是严格凸函数则<span class="arithmatex">\(\nabla^2 f(x)\)</span>不一定正定，但一定半正定。</p>
+<blockquote>
+<p>以<span class="arithmatex">\(f(x) = x^4\)</span>为例，它是严格凸函数，但二阶导数不是正定，而是半正定</p>
+</blockquote>
+<h1 id="_12">优化问题<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<p>考虑最优性问题(P)
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}&amp;\min f(x)\\&amp;\mathrm{s.t.} g_{i}(x)\leq0,\quad i=1,\ldots,m,\\&amp;h_{i}(x)=0,\quad i=1,\ldots,l\end{aligned}\)</span>\)</span></p>
+<p>可行域为集合<span class="arithmatex">\(<span class="arithmatex">\(S=\{x\in\mathbb{R}^n\mid g_i(x)\leq0, i=1,\ldots,m, h_i(x)=0, i=1,\ldots,l\}\)</span>\)</span></p>
+<h2 id="_13">约束优化的最优性条件与对偶理论<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">约束优化的最优性条件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>1）一阶必要条件（KKT条件）：假设<span class="arithmatex">\(x^*\)</span>是问题(P)的局部最优解，且在<span class="arithmatex">\(x^*\)</span>处某个“适当的条件（constraint qualification）”成立，则存在<span class="arithmatex">\(\lambda \in \mathbb{R}^m, \mu \in \mathbb{R}^l\)</span> 使得<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\nabla f(x^*)+\sum_{i=1}^m\lambda_i\nabla g_i(x^*)+\sum_{i=1}^\ell\mu_i\nabla h_i(x^*)&amp; =0, \\
+\lambda_{i}&amp; \geq0, i=1,\ldots,m, \\
+g_{i}(x^{*})&amp; \leq0, i=1,\ldots,m, \\
+h_{i}(x^{*})&amp; =0, i=1,\ldots,\ell, \\
+\lambda_ig_i(x^*)&amp; =0, i=1,\ldots,m 
+\end{aligned}\)</span>\)</span>
+2）一阶充分条件：如果问题(P)是凸优化问题，则满足KKT条件的点是问题(P)是全局最优解</p>
+<blockquote>
+<p>Proof:要利用凸函数的一阶充要条件
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+f(x)-f(x^*)&amp; \geq\nabla f(x^{*})^{T}(x-x^{*})\quad[f\text{ 凸函数一阶充要条件}]\\\
+&amp;=-\sum_{i=1}^m\lambda_i\nabla g_i(x^*)^T(x-x^*)-\sum_{i=1}^\ell\mu_i\nabla h_i(x^*)^T(x-x^*)\quad[\mathrm{KKT}] \\
+&amp;\geq\sum_{i=1}^m\lambda_i(g_i(x^*)-g_i(x))+\sum_{i=1}^\ell\mu_i(h_i(x^*)-h_i(x))[g_i\text{ 凸,}h_i\text{ 线性}] \\
+&amp;=\sum_{i=1}^m(\lambda_ig_i(x^*)-\lambda_ig_i(x))\quad[h_i(x^*)=h_i(x)=0] \\
+&amp;\geq0\quad[\mathrm{KKT}]
+\end{aligned}\)</span>\)</span>
+这里和[[#^a542fc]]凸优化问题的最优性条件联动了，即<span class="arithmatex">\(\nabla f(x^{*})^{T}(x-x^{*}) \geq 0\)</span>,因为上述证明也证明了凸优化问题的最优性条件。</p>
+</blockquote>
+<p>4）二阶充分条件：假设<span class="arithmatex">\(x^*\)</span>满足KKT条件，对应拉格朗日乘子为<span class="arithmatex">\(\lambda,\mu\)</span> 
+- 若<span class="arithmatex">\(x^*\)</span>是<span class="arithmatex">\(<span class="arithmatex">\(L(x)=f(x)+\sum_{i=1}^m\lambda_ig_i(x)+\sum_{i=1}^\ell\mu_ih_i(x)\)</span>\)</span>(拉格朗日函数)的最优解，则<span class="arithmatex">\(x^*\)</span>也是（P）的最优解<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}f(x^*)&amp;=L(x^*)\leq L(x)\leq f(x),\mathrm{~}\forall x\in S\\f(x^*)&amp;=L(x^*)\leq L(x)\leq f(x),\mathrm{~}\forall x\in S\cap N_\delta(x^*)\end{aligned}\)</span>\)</span>
+    &gt;proof:
+    &gt;(1) <span class="arithmatex">\(\nabla L( x^* ) = \nabla f( x^* ) + \sum _{i= 1}^m\lambda _i\nabla g_i( x^* ) + \sum _{i= 1}^\ell \mu _i\nabla h_i( x^* )=0\)</span> [根据KKT 条件1]
+    &gt;(2) <span class="arithmatex">\(L( x^* ) = f( x^* ) + \sum _{i= 1}^m\lambda _ig_i( x^* ) + \sum _{i= 1}^\ell \mu _ih_i( x^* )=f(x^*)\)</span>[KKT 条件 4 和 5]
+    &gt;(3) <span class="arithmatex">\(\forall x\in S\)</span>, <span class="arithmatex">\(L( x) = f( x) + \sum _{i= 1}^m\lambda _ig_i( x) + \sum _{i= 1}^\ell \mu _ih_i( x)\leq f(x)\)</span> [S的约束和 KKT 条件 2]</p>
+<ul>
+<li>若<span class="arithmatex">\(\nabla  ^2 L(x^*)\)</span>正定，则<span class="arithmatex">\(x^*\)</span>是（P）的严格最优解。（由无约束优化问题<span class="arithmatex">\(L(x)\)</span>的最优性充分条件[[#^fa4666]]得）</li>
+<li>若<span class="arithmatex">\(d^T\nabla^2L(x^*)d&gt;0, \forall d\in F_1(x^*)\)</span> 且<span class="arithmatex">\(d\neq 0\)</span>,则<span class="arithmatex">\(x^*\)</span>是（P）的严格最优解。其中<span class="arithmatex">\(F_1(x^*)=\{d\mid\nabla g_i(x^*)^Td\leq0, i\in I, \nabla h_i(x^*)^Td=0, i=1,\ldots,\ell\}\)</span></li>
+</ul>
+<h3 id="_15">对偶理论<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>无论原问题(P)是否是凸优化问题，对偶问题一定是凸优化问题</p>
+<blockquote>
+<p>Proof: 要证明对偶问题是凸问题，需要证明对偶函数<span class="arithmatex">\(d(\lambda,\mu)\)</span>是凹函数
+任取<span class="arithmatex">\((\lambda^1,\mu^1),(\lambda^2,\mu^2),\alpha \in (0,1)\)</span>,则有<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+&amp;d(\alpha\lambda^1+(1-\alpha)\lambda^2,\alpha\mu^1+(1-\alpha)\mu^2) \\
+&amp;= \min\{f(x)+\sum[\alpha\lambda_{i}^{1}+(1-\alpha)\lambda_{i}^{2}]g_{i}(x)+\sum[\alpha\mu_{i}^{1}+(1-\alpha)\mu_{i}^{2}]h_{i}(x)\} \\
+&amp;= \min\{\alpha[f(x)+\sum\lambda_{i}^{1}g_{i}(x)+\sum\mu_{i}^{1}h_{i}(x)] \\
+&amp;+(1-\alpha)[f(x)+\sum\lambda_i^2g_i(x)+\sum\mu_i^2h_i(x)]\} \\
+&amp;\geq\alpha\min\{f(x)+\sum\lambda_{i}^{1}g_{i}(x)+\sum\mu_{i}^{1}h_{i}(x)\} \\
+&amp;+(1-\alpha)\min\{f(x)+\sum\lambda_{i}^{2}g_{i}(x)+\sum\mu_{i}^{2}h_{i}(x)\} \\
+&amp;=\alpha d(\lambda^1,\mu^1)+(1-\alpha)d(\lambda^2,\mu^2)
+\end{aligned}\)</span>\)</span>
+上述用到了<span class="arithmatex">\(\min (x+y) \geq \min (x) + \min (y)\)</span></p>
+</blockquote>
+<p>如果原问题（P）是凸优化问题，<span class="arithmatex">\(x^*\)</span>满足KKT条件，则<span class="arithmatex">\(x^*\)</span>是原问题(P)的最优解，且乘子<span class="arithmatex">\(\lambda,\mu\)</span>是对偶问题的最优解</p>
+<h2 id="_16">无约束优化问题<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>也即没有约束，如何进行求解，使用下降算法（有两种：线搜索方法和信赖域方法），线搜索方法<span class="arithmatex">\(x_{k+1} = x_k +\alpha_k d^k\)</span>，需要确定步长和方向。
+<strong>方向</strong>就是下降方向：
+- 坐标轴交替下降法：方向<span class="arithmatex">\(e_i\)</span>,步长使用精确线搜索（第六章 PPT）
+- 最速下降法：方向<span class="arithmatex">\(d^k = -\nabla f(x^k)\)</span>，步长使用精确线搜索（第六章 PPT）
+    &gt;优点：简单直观；收敛；搜索方向只需计算<span class="arithmatex">\(\nabla f(x^k)\)</span>
+    &gt;缺点：1）收敛速度慢（线性收敛）；2）zigzag现象；3）不具备二次终止性（即在有限步内求得凸二次函数最优解）
+- 牛顿法：方向<span class="arithmatex">\(d^k = -[\nabla^2 f(x^k)]^{-1}\nabla f(x)\)</span>，步长默认为1（第六章 PPT，方向根据二阶泰勒展开进行推到）
+    &gt; 优点：当初始点取得比较接近于收敛点，且黑塞据则很难满足较好性质时，二阶收敛；二次终止性
+    &gt; 缺点：计算量大（需要计算黑塞矩阵）；适用范围较窄
+    <strong>必须说明的是牛顿法和牛顿迭代法是两种不同的方法，牛顿法是一个二阶优化方法，而牛顿迭代是求解方程根的方法，虽然二者都是基于泰勒展开</strong></p>
+<ul>
+<li>修正牛顿法：可以使用精确线搜索进行步长，然后如果黑塞矩阵不可逆，则需要添加一项使得可逆，或者别的方法（第六章 PPT）</li>
+<li>拟牛顿法（第六章 PPT）</li>
+<li>共轭梯度法：无需计算二阶导，只需计算一阶导，步长使用精确线搜索步长，方向是<span class="arithmatex">\(d^{k+1}=-\nabla f(x^{k+1})+\beta_kd^k\)</span> 其中<span class="arithmatex">\(\beta_k=\frac{\nabla f(x^{k+1})^T(\nabla f(x^{k+1})-\nabla f(x^k))}{\nabla f(x^k)^T\nabla f(x^k)}\)</span>（第七章，证明里面有）
+    &gt;特点：共轭梯度法是介于最速下降法与牛顿法之间的一个方法，它仅需利用一阶导数信息，但克服了最速下降法收敛慢的缺点，又避免了牛顿法需要存储和计算Hesse矩阵并求逆的缺点，共轭梯度法不仅是解决大型线性方程组最有用的方法之一，也是解大型非线性最优化最有效的算法之一</li>
+</ul>
+<p><strong>步长</strong>：
+- 精确线搜索：精确线搜索就是直接对<span class="arithmatex">\(\phi(\alpha)\)</span>求导等于0
+- 区间搜索：均匀搜索法、黄金分割法、基于导数信息的二分法（PPT 第五章）
+- 非精确搜索：Armijo条件,Goldstein法则</p>
+<p><a href="https://keson96.github.io/2016/12/08/2016-12-08-Line-Search/">局部搜索方法——线性搜索 | MayMoon (keson96.github.io)</a>
+<a href="https://www.cnblogs.com/MarisaMagic/p/17902574.html">[最优化方法笔记] 线搜索方法 - MarisaMagic - 博客园 (cnblogs.com)</a></p>
+<h3 id="_17">无约束优化问题最优性条件<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>^fa4666</p>
+<p>1）如果<span class="arithmatex">\(f(x)\)</span> 是凸函数，则<span class="arithmatex">\(x^*最优 \Leftrightarrow  \nabla f(x^*) =0\)</span> （凸优化问题最优性条件[[#^a542fc]]那里有证明）
+2）<span class="arithmatex">\(f(x)\)</span>是一般函数，则
+- <strong>必要条件</strong>：若<span class="arithmatex">\(x^*\)</span>是最优解，则<span class="arithmatex">\(\nabla f(x^*) =0,\nabla^2 f(x^*) 半正定\)</span><br />
+    &gt;proof ：
+    &gt;1）首先证明<span class="arithmatex">\(\nabla f(x^*) =0\)</span>
+    &gt;对<span class="arithmatex">\(\forall d\)</span>，一阶泰勒展开 <span class="arithmatex">\(f(x^* + \lambda d) = f(x^*) +\lambda \nabla^T f(x^*)d +o(\lambda||d||)\)</span>，则<span class="arithmatex">\(\lambda \nabla^T f(x^*)d +o(\lambda ||d||)= f(x^*+\lambda d)-f(x^*)\)</span>，
+    &gt;因为<span class="arithmatex">\(x^*\)</span>最优，所以<span class="arithmatex">\(f(x^* + \lambda d) \geq f(x^*)\)</span>，
+    &gt;那么<span class="arithmatex">\(\lambda \nabla^T f(x^*)d +o(\lambda ||d||) \geq 0\)</span>,即<span class="arithmatex">\(\nabla^T f(x^*)d +\frac{o(\lambda ||d||)}{\lambda} \geq 0\)</span>
+    &gt;当<span class="arithmatex">\(\lambda \rightarrow 0\)</span>,得到<span class="arithmatex">\(\nabla^T f(x^*)d\geq 0\)</span>,取<span class="arithmatex">\(d = -\nabla f(x^*)\)</span>，即<span class="arithmatex">\(-\nabla f(x^*)\nabla f(x^*) \geq 0\)</span>，因此只能<span class="arithmatex">\(\nabla f(x^*) =0\)</span> 
+    &gt;2）再证明Hesse半正定
+    &gt;使用二阶泰勒展开 ,并利用<span class="arithmatex">\(\nabla f(x^*) = 0\)</span> <span class="arithmatex">\(f(x^* + \lambda d) = f(x^*) +\lambda \nabla^T f(x^*)d + \frac{1}{2}\lambda^2 d^T \nabla ^2 f(x^*)d +  o(\lambda^2 ||d^2||)\)</span>
+    &gt;<span class="arithmatex">\(<span class="arithmatex">\(\frac{1}{2}\lambda^2 d^T \nabla ^2 f(x^*)d +o(\lambda^2 ||d^2||) = f(x^* + \lambda d) - f(x^*) \geq 0\)</span>\)</span>
+     即<span class="arithmatex">\(\frac{1}{2}d^T \nabla ^2 f(x^*)d +\frac{o(\lambda^2 ||d^2||)}{\lambda ^2}\geq 0\)</span>，令<span class="arithmatex">\(\lambda \rightarrow 0\)</span>,则<span class="arithmatex">\(d^T \nabla ^2 f(x^*)d \geq 0\)</span> ,那么<span class="arithmatex">\(\nabla ^2 f(x^*)\)</span>半正定
+    &gt;
+- <strong>充分条件</strong>：若<span class="arithmatex">\(\nabla f(x^*) =0,\nabla^2 f(x^*) 正定\)</span>，则<span class="arithmatex">\(x^*\)</span>是严格局部最优解</p>
+<blockquote>
+<p>proof：书P31,《最优化基础理论与方法（第二版）》王燕军etal</p>
+</blockquote>
+<h2 id="_18">凸优化问题<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>如果<span class="arithmatex">\(f(x),g_i(x)\)</span>是凸函数,<span class="arithmatex">\(h_i(x)\)</span>是线性函数，问题（P）是凸优化问题，此时<span class="arithmatex">\(S\)</span>是凸集。</p>
+<h3 id="_19">性质<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>对于凸优化问题，局部最优解即全局最优解</p>
+<blockquote>
+<p>proof 反证法
+假设<span class="arithmatex">\(\overline{x}\)</span>是局部最优，但不是全局最优，则<span class="arithmatex">\(\exists x^* \in S\)</span>使得<span class="arithmatex">\(f(x^*) &lt; f(\overline{x})\)</span>,由于<span class="arithmatex">\(f(x)\)</span>是凸函数，则对于<span class="arithmatex">\(\lambda \in (0,1)\)</span>,有<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}f(\overline{x}+\lambda(x^*-\overline{x}))&amp;=f(\lambda x^*+(1-\lambda)\overline{x})\\&amp;\leq\lambda f(x^*)+(1-\lambda)f(\overline{x})\\&amp;&lt;f(\overline{x})\end{aligned}\)</span>\)</span>
+当<span class="arithmatex">\(\lambda \rightarrow 0\)</span> 时，上式与 <span class="arithmatex">\(\overline{x}\)</span>局部最优矛盾</p>
+</blockquote>
+<h3 id="_20">凸优化问题的最优性条件<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>^a542fc</p>
+<p><span class="arithmatex">\(x^*\in S\)</span>是凸优化问题（P）最优解的充分必要条件是<span class="arithmatex">\(\nabla f(x^*)^T(x - x^*)\geq 0,\forall x \in S\)</span> </p>
+<blockquote>
+<p>Proof：
+<strong>充分性</strong>：已知<span class="arithmatex">\(\nabla f(x^*)^T(x - x^*)\geq 0,\forall x \in S\)</span> ，<span class="arithmatex">\(f(x)\)</span>是凸函数，推 <span class="arithmatex">\(x^*\)</span>是最优解
+  因为<span class="arithmatex">\(f(x)\)</span>是凸函数，使用凸函数的一阶充要条件，即<span class="arithmatex">\(\forall x\)</span>,<span class="arithmatex">\(f(x)\geq f(x^*) + \nabla f(x^*)^T(x - x^*)\)</span>,因为<span class="arithmatex">\(\nabla f(x^*)^T(x - x^*)\geq 0\)</span>,所以<span class="arithmatex">\(f(x)\geq f(x^*)\)</span>,即<span class="arithmatex">\(x^*\)</span>是最优解
+<strong>必要性</strong>：<span class="arithmatex">\(f(x)\)</span>是凸函数且 <span class="arithmatex">\(x^*\)</span>是最优解，推<span class="arithmatex">\(\nabla f(x^*)^T(x - x^*)\geq 0,\forall x \in S\)</span> 
+  对   <span class="arithmatex">\(\forall x ,\lambda \in (0,1)\)</span>
+  <span class="arithmatex">\(f(x^{*}+\lambda(x-x^{*}))=f(x^{*})+\lambda\nabla f(x^{*})^{T}(x-x^{*})+o(\lambda\|x-x^{*}\|)\)</span>
+  因为<span class="arithmatex">\(x^*\)</span>是最优解，所以<span class="arithmatex">\(f(x^{*}+\lambda(x-x^{*}))\geq f(x^{*})\)</span> ，因此<span class="arithmatex">\(\lambda\nabla f(x^{*})^{T}(x-x^{*})+o(\lambda\|x-x^{*}\|) \geq 0\)</span> ,即<span class="arithmatex">\(\nabla f(x^{*})^{T}(x-x^{*})+\frac{o(\lambda\|x-x^{*}\|)}{\lambda} \geq 0\)</span>,令<span class="arithmatex">\(\lambda \rightarrow 0\)</span>，则<span class="arithmatex">\(\nabla f(x^*)^T(x - x^*)\geq 0,\forall x \in S\)</span> </p>
+</blockquote>
+<p>扩展到特殊的凸优化问题的最优性条件
+1）无约束凸优化（也即上面的<span class="arithmatex">\(g_i(x) = 0,h_i(x) = 0\)</span>）：<span class="arithmatex">\(x^*最优\Leftrightarrow \nabla f(x^*)^T(x - x^*)\geq 0, \Leftrightarrow  \nabla f(x^*) =0\)</span> </p>
+<blockquote>
+<p>proof：一个向量与任意向量相乘非负,该向量只能为0</p>
+</blockquote>
+<p>2）非负约束凸优化<span class="arithmatex">\(\min \{f(x)| x \geq 0\}\)</span>:<span class="arithmatex">\(x^*最优\Leftrightarrow \nabla f(x^*)^T(x - x^*)\geq 0, \Leftrightarrow  \nabla f(x^*)_ix_i^* =0, x^*\geq 0,\nabla f(x^*) \geq 0\)</span></p>
+<blockquote>
+<p>proof：<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+\text{x*最优}&amp; \Longleftrightarrow \nabla f(x^*)^T(x-x^*)\geq0, \forall x\geq0, x^*\geq0 \\
+&amp;\Longleftrightarrow \nabla f(x^*)^Tx\geq\nabla f(x^*)^Tx^*, \forall x\geq0, x^*\geq0 \\
+&amp;\iff\nabla f(x^*)\geq0, x^*\geq0, \nabla f(x^*)^Tx^*=0 \\
+&amp;\iff\nabla f(x^*)\geq0, x^*\geq0, \nabla f(x^*)_ix_i^*=0
+\end{aligned}\)</span>\)</span>
+将<span class="arithmatex">\(x = 0\)</span>时，得到<span class="arithmatex">\(-\nabla f(x^*)^T(x^*)\geq0\)</span> ,由此得出<span class="arithmatex">\(\nabla f(x^*)^T(x^*)=0\)</span>。<span class="arithmatex">\(x - x^*\)</span>非常大的时候都必须成立，梯度项必须大于等于0.</p>
+</blockquote>
+<h3 id="_21">凸优化问题的常见类型<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>1）线性规划，线性规划的标准形式为<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}&amp;\min c^Tx\\&amp;\mathrm{s.t.~}Ax=b,\\&amp;\times\geq0\end{aligned}\)</span>\)</span>
+使用单纯形法进行求解
+2）凸二次规划
+3）带二次约束的二次规划
+4）二阶锥规划</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://suncitydaa.github.io/" target="_blank" rel="noopener" title="GitHub | Dala" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
