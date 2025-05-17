@@ -1,5 +1,5 @@
 site_name: Dala site
-site_url: https://sunCityDaa.github.io/
+site_url: https://la-vie-l-amour.github.io/
 site_author: Dala
 site_description: Dala site :)
 
@@ -71,7 +71,7 @@ theme:
     repo: fontawesome/brands/github
 edit_uri: edit/main/docs # 编辑按钮跳转的链接
 ## [top-right corner]
-repo_url: https://github.com/sunCityDaa/sunCityDaa.github.io # 右上角点击跳转的链接
+repo_url: https://github.com/la-vie-l-amour/la-vie-l-amour.github.io # 右上角点击跳转的链接
 repo_name: Dala.github.io # 右上角的名字
 ## [bottom-left corner]
 # copyright: Dala CC-BY-1.0 # 左下角的版权声明
@@ -82,7 +82,7 @@ extra:
     #   link: https://space.bilibili.com/24502827
     #   name: Bilibili | 杨希杰619 # 鼠标悬浮提示
     - icon: fontawesome/brands/github
-      link: https://github.com/sunCityDaa
+      link: https://github.com/la-vie-l-amour
       name: GitHub | Dala
 
 # [Extensions]
