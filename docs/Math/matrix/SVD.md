@@ -1,4 +1,4 @@
-# 奇异值分解(Singular value decomposition, SVD)
+# SVD
 ## 1. 去中心化（把坐标原点放在数据中心）
 这里选择标准化 z-score,对每个特征进行标准化
 一组数据n个样本，每个样本是m维（也即m个特征）， $X_{m\times n} = [x_1,  x_2, \cdots, x_m]^T$ ，其中$x_i$代表一个特征$x_i \in \mathbb{R}^n$, 

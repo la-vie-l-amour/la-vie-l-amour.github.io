@@ -1,5 +1,5 @@
-参考另一个 https://sites.google.com/view/deep-rl-bootcamp/lectures
 # CS285
+参考另一个 https://sites.google.com/view/deep-rl-bootcamp/lectures
 ## Lecture 10 (use model to control , planning)
 ### Optimal Control and Planning
 

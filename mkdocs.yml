@@ -15,15 +15,12 @@ nav:
       - Reinforcement/model-based/MBRL.md
     - planning:
       - Reinforcement/planning/Plan method.md
-
-  
-
+      
   - Math:
     # - Math/index.md
     - 矩阵理论:
       - Math/matrix/基本知识.md
-      - SVD:
-        - Math/matrix/SVD/SVD.md
+      - Math/matrix/SVD.md
     - 最优化:
       - Math/optimizer/凸优化理论.md
     - 概率论:

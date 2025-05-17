@@ -1,4 +1,3 @@
-
 1.  Probability Theory
     * Conditional independence ($X \bot A | B$)
         $$
