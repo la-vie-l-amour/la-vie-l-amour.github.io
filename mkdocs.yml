@@ -40,7 +40,8 @@ nav:
       - computer/database/数据库.md
     - cpp:
       - computer/cpp/基本语法.md
-      - computer/cpp/项目.md
+      - 项目:
+        - computer/cpp/项目.md
 
 # [UI]
 ## [top]
