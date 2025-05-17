@@ -14,7 +14,7 @@ nav:
     - model-based:
       - Reinforcement/model-based/MBRL.md
     - planning:
-      - Reinforcement/planning/Plan_Method.md
+      - Reinforcement/planning/PlanMethod.md
       
   - Math:
     # - Math/index.md
