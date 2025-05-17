@@ -6,38 +6,41 @@ site_description: Dala site :)
 
 nav:
   - Reinforcement Learning:
-    - Reinforcement/index.md
+    # - Reinforcement/index.md
     - MDP:
-      - Reinforcement/MDP/index.md
+      - Reinforcement/MDP/MDP.md
     - model-free:
-      - Reinforcement/model-free/index.md
+      - Reinforcement/model-free/MFRL.md
     - model-based:
-      - Reinforcement/model-based/index.md
+      - Reinforcement/model-based/MBRL.md
     - planning:
-      - Reinforcement/planning/index.md
+      - Reinforcement/planning/Plan method.md
 
   
 
   - Math:
-    - Math/index.md
+    # - Math/index.md
     - 矩阵理论:
-      - Math/matrix/index.md
+      - Math/matrix/基本知识.md
       - SVD:
-        - Math/matrix/SVD/index.md
+        - Math/matrix/SVD/SVD.md
     - 最优化:
-      - Math/optimizer/index.md
+      - Math/optimizer/凸优化理论.md
     - 概率论:
-      - Math/probability/index.md
+      - Math/probability/基本知识.md
 
-
-  - Philosophy:
-    - Philosophy/index.md
-
-
-  - Music:
-    - Music/index.md
-
-
+  - 408:
+    - 计网:
+      - computer/network/计网.md
+    - 操作系统&计组:
+      - computer/os/操作系统&计组.md
+    - 数据结构:
+      - computer/data-structure/数据结构.md
+    - 数据库:
+      - computer/database/数据库.md
+    - cpp:
+      - computer/cpp/基本语法.md
+      - computer/cpp/项目.md
 
 # [UI]
 ## [top]
@@ -73,7 +76,7 @@ edit_uri: edit/main/docs # 编辑按钮跳转的链接
 repo_url: https://github.com/la-vie-l-amour/la-vie-l-amour.github.io # 右上角点击跳转的链接
 repo_name: Dala.github.io # 右上角的名字
 ## [bottom-left corner]
-copyright: Dala CC-BY-1.0 # 左下角的版权声明
+# copyright: Dala CC-BY-1.0 # 左下角的版权声明
 ## [bottom-right corner]
 extra:
   social: # icons
